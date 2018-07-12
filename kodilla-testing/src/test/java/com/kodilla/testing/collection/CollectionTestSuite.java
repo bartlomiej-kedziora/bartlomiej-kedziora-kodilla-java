@@ -21,30 +21,27 @@ public class CollectionTestSuite {
 
     @Test
     public void testOddNumbersExterminatorEmptyList() {
+        //Given
         OddNumbersExterminator one = new OddNumbersExterminator();
-        ArrayList<Integer> numbers = new ArrayList<>();
-        ArrayList<Integer> actual = one.exterminate(numbers);
-
+        List<Integer> numbers = new ArrayList<>();
+        //When
+        List<Integer> actual = one.exterminate(numbers);
+        //Then
         Assert.assertTrue(actual.isEmpty());
     }
 
     @Test
     public void testOddNumbersExterminatorNormalList() {
+        //Given
         OddNumbersExterminator one = new OddNumbersExterminator();
-        ArrayList<Integer> numbers = new ArrayList<>();
-
+        List<Integer> numbers = new ArrayList<>();
+        //When
         for(int i= 0; i<10; i++) {
             numbers.add(i);
         }
-
-        ArrayList<Integer> actual = one.exterminate(numbers);
-
-        ArrayList<Integer> expected = new ArrayList<>();
-        int[] array = new int[]{0,2,4,6,8};
-        for(int val : array) {
-            expected.add(val);
-        }
-
+        List<Integer> actual = one.exterminate(numbers);
+        List<Integer> expected = Arrays.asList(0, 2, 4, 6, 8);
+        //Then
         Assert.assertEquals(actual, expected);
     }
 }
