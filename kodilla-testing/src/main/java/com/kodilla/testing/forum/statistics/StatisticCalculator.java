@@ -20,14 +20,14 @@ public class StatisticCalculator {
     }
 
     public String showStatistics() {
-        StringBuilder result = new StringBuilder();
-        result.append("Amount of users: " + usersAmount);
-        result.append("\nAmount of posts: " + postsAmount);
-        result.append("\nAmount of comments: " + commentAmount);
-        result.append("\nAverage of posts per user: " + avgPostsPerUser);
-        result.append("\nAverage of comments per user: " + avgCommentsPerUser);
-        result.append("\nAverage of comments per post: " + avgCommentsPerUser);
-        return result.toString();
+        return new StringBuilder()
+        .append("Amount of users: " + usersAmount)
+        .append("\nAmount of posts: " + postsAmount)
+        .append("\nAmount of comments: " + commentAmount)
+        .append("\nAverage of posts per user: " + avgPostsPerUser)
+        .append("\nAverage of comments per user: " + avgCommentsPerUser)
+        .append("\nAverage of comments per post: " + avgCommentsPerUser)
+        .toString();
     }
     private int calculateUsersAmount() {
         return statistics.userNames().size();
@@ -43,21 +43,21 @@ public class StatisticCalculator {
 
     private double calculateAvgPostsPerUser() {
         if(usersAmount > 0) {
-            return (double)postsAmount / (double)usersAmount;
+            return (double)postsAmount / usersAmount;
         }
         return 0.0;
     }
 
     private double calculateAvgCommentsPerUser() {
         if(usersAmount > 0) {
-            return (double)commentAmount / (double)usersAmount;
+            return (double)commentAmount / usersAmount;
         }
         return 0.0;
     }
 
     private double calculateAvgCommentsPerPost() {
         if(postsAmount > 0) {
-            return (double)commentAmount / (double)postsAmount;
+            return (double)commentAmount / postsAmount;
         }
         return 0.0;
     }
@@ -72,5 +72,17 @@ public class StatisticCalculator {
 
     public double getAvgCommentsPerPost() {
         return avgCommentsPerPost;
+    }
+
+    public int getUsersAmount() {
+        return usersAmount;
+    }
+
+    public int getPostsAmount() {
+        return postsAmount;
+    }
+
+    public int getCommentAmount() {
+        return commentAmount;
     }
 }
