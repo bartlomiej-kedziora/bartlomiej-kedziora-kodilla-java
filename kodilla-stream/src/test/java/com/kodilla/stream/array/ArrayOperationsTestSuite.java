@@ -15,10 +15,9 @@ public class ArrayOperationsTestSuite {
                 .forEach(n -> array[n] = n+1);
 
         //When
-        OptionalDouble expected = OptionalDouble.of(3.0);
-        OptionalDouble result = ArrayOperations.getAverage(array);
+        double result = ArrayOperations.getAverage(array);
 
         //Then
-        Assert.assertEquals(expected, result);
+        Assert.assertEquals(3.0, result, 0);
     }
 }
