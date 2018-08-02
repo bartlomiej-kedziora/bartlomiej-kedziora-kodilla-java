@@ -3,9 +3,9 @@ package com.kodilla.good.patterns.challenges.food;
 import java.util.List;
 
 public class ExtraFoodShop implements ProducerService {
-    List<Product> products;
+    private List<Product> products;
 
-    public ExtraFoodShop(List<Product> products) {
+    public ExtraFoodShop(final List<Product> products) {
         this.products = products;
     }
 
