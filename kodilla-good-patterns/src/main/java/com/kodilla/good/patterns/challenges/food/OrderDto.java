@@ -1,16 +1,18 @@
 package com.kodilla.good.patterns.challenges.food;
 
+import java.util.Map;
+
 public class OrderDto {
-    private Product product;
+    private Map<Product, Integer> orderedProducts;
     private boolean isOrdered;
 
-    public OrderDto(Product product, boolean isOrdered) {
-        this.product = product;
+    public OrderDto(Map<Product, Integer> orderedProducts, boolean isOrdered) {
+        this.orderedProducts = orderedProducts;
         this.isOrdered = isOrdered;
     }
 
-    public Product getProduct() {
-        return product;
+    public Map<Product, Integer> getOrderedProducts() {
+        return orderedProducts;
     }
 
     public boolean isOrdered() {

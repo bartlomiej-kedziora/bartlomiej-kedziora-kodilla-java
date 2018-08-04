@@ -1,16 +1,14 @@
 package com.kodilla.good.patterns.challenges.food;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class OrderRequestRetriever {
     public OrderRequest retrieve() {
-        List<Product> products = new ArrayList<>();
-        products.add(new Product("milk", 10));
-        products.add(new Product("cola", 5));
+        Map<Product, Integer> productsToOrder = new HashMap<>();
+        productsToOrder.put(new Product("milk"), 5);
+        productsToOrder.put(new Product("coffee"), 3);
 
-        Product product = new Product("milk", 5);
-
-        return new OrderRequest(products, product);
+        return new OrderRequest(productsToOrder);
     }
 }

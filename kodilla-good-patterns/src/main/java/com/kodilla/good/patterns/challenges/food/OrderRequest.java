@@ -1,21 +1,15 @@
 package com.kodilla.good.patterns.challenges.food;
 
-import java.util.List;
+import java.util.Map;
 
 public class OrderRequest {
-    private List<Product> products;
-    private Product product;
+    private Map<Product, Integer> productsToOrder;
 
-    public OrderRequest(List<Product> products, Product product) {
-        this.products = products;
-        this.product = product;
+    public OrderRequest(Map<Product, Integer> productsToOrder) {
+        this.productsToOrder = productsToOrder;
     }
 
-    public List<Product> getProducts() {
-        return products;
-    }
-
-    public Product getProduct() {
-        return product;
+    public Map<Product, Integer> getProductsToOrder() {
+        return productsToOrder;
     }
 }

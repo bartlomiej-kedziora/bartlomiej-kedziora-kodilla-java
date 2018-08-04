@@ -4,11 +4,9 @@ import java.util.Objects;
 
 public class Product {
     private String name;
-    private int quantity;
 
-    public Product(final String name, final int quantity) {
+    public Product(final String name) {
         this.name = name;
-        this.quantity = quantity;
     }
 
     @Override
@@ -25,15 +23,14 @@ public class Product {
         return Objects.hash(name);
     }
 
+    @Override
+    public String toString() {
+        return "Product{" +
+                "name='" + name + '\'' +
+                '}';
+    }
+
     public String getName() {
         return name;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
     }
 }
