@@ -7,12 +7,12 @@ public class FlightRunner {
         Flight flight1 = new Flight("dep2", "arr2");
         Flight flight2 = new Flight("dep3", "arr3");
 
-        portTest(flight, "Port is in the map and is available");
-        portTest(flight1, "Port is in the map but isn't available");
-        portTest(flight2, "Port isn't in the map");
+        portTesting(flight, "Port is in the map and is available");
+        portTesting(flight1, "Port is in the map but isn't available");
+        portTesting(flight2, "Port isn't in the map");
 
     }
-    public static void portTest(Flight flight, String headMessage) {
+    public static void portTesting(Flight flight, String headMessage) {
         System.out.println("----------TEST: " + headMessage +"----------");
         try {
             boolean isAirportAvailable = flightFinder.findFlight(flight);
