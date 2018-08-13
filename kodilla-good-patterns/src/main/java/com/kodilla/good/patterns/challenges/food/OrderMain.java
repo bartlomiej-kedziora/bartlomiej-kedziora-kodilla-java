@@ -8,6 +8,7 @@ public class OrderMain {
         Map<Product, Integer> productsInProducentsStock = new HashMap<>();
         productsInProducentsStock.put(new Product("milk"), 10);
         productsInProducentsStock.put(new Product("cola"), 5);
+        productsInProducentsStock.put(new Product("coffee"), 3);
 
         OrderRequestRetriever orderRequestRetriever = new OrderRequestRetriever();
         OrderRequest orderRequest = orderRequestRetriever.retrieve();

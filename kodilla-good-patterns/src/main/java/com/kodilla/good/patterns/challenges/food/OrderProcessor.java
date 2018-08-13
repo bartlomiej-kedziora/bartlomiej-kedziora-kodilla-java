@@ -9,11 +9,11 @@ public class OrderProcessor {
     }
 
     public OrderDto process(OrderRequest orderRequest) {
-        boolean isOrdered = producerService.process(orderRequest.getProductsToOrder());
-        if(isOrdered) {
-            return new OrderDto(producerService.getOrderedProducts(), true);
-        } else {
-            return new OrderDto(producerService.getOrderedProducts(), false);
-        }
+        System.out.println("Start processing order");
+
+        producerService.process(orderRequest.getProductsToOrder());
+
+        System.out.println("Successfully finish processing order");
+        return new OrderDto(orderRequest.getProductsToOrder());
     }
 }
