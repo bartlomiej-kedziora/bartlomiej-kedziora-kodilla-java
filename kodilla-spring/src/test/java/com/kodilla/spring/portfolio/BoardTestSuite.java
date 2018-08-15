@@ -5,12 +5,14 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import java.util.Arrays;
+
 public class BoardTestSuite {
     @Test
     public void testTaskAdd() {
         //Given
         ApplicationContext context = new AnnotationConfigApplicationContext(BoardConfig.class);
-        Board board = (Board)context.getBean("getBoard");
+        Board board = context.getBean(BoardConfig.class).getBoard();
 
         //When
         board.getToDoList().addTask("toDo1");
@@ -25,5 +27,17 @@ public class BoardTestSuite {
         Assert.assertEquals("toDo1", resultToDo);
         Assert.assertEquals("done1", resultDone);
         Assert.assertEquals("inProgress1", resultInProgress);
+    }
+
+    @Test
+    public void testContext() {
+        //Given
+        ApplicationContext context = new AnnotationConfigApplicationContext(BoardConfig.class);
+
+        //When & Then
+        System.out.println("===== Beans list: ==== >>");
+        Arrays.stream(context.getBeanDefinitionNames())
+                .forEach(System.out::println);
+        System.out.println("<< ===== Beans list ====");
     }
 }
