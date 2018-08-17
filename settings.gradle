@@ -1,11 +1,10 @@
 rootProject.name = 'kodill-course'
 include 'kodilla-testing'
 include 'kodilla-stream'
-include 'kodilla-stream'
 include 'kodilla-exception'
 include 'kodilla-good-patterns'
 include 'kodilla-spring-intro'
 include 'kodilla-spring'
-include 'kodilla-patterns'
+include 'kodilla-spring-web'
 include 'kodilla-patterns'
 
