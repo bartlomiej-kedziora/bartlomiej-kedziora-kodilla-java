@@ -1,0 +1,10 @@
+ACurrently we're testing: testOrderProductExistenceInStock method
+Start processing order
+%Successfully finish processing order
+Test has finished
+DCurrently we're testing: testOrderProductNotExistenceInStock method
+Start processing order
+Test has finished
+HCurrently we're testing: testOrderProductQuantityMoreThanInStock method
+Start processing order
+Test has finished
