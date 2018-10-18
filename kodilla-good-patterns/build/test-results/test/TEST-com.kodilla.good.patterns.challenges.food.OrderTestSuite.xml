@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.kodilla.good.patterns.challenges.food.OrderTestSuite" tests="3" skipped="0" failures="0" errors="0" timestamp="2018-09-04T15:35:16" hostname="bkedziora-aku" time="0.044">
+  <properties/>
+  <testcase name="testOrderProductExistenceInStock" classname="com.kodilla.good.patterns.challenges.food.OrderTestSuite" time="0.031"/>
+  <testcase name="testOrderProductNotExistenceInStock" classname="com.kodilla.good.patterns.challenges.food.OrderTestSuite" time="0.01"/>
+  <testcase name="testOrderProductQuantityMoreThanInStock" classname="com.kodilla.good.patterns.challenges.food.OrderTestSuite" time="0.002"/>
+  <system-out><![CDATA[Currently we're testing: testOrderProductExistenceInStock method
+Start processing order
+Successfully finish processing order
+Test has finished
+Currently we're testing: testOrderProductNotExistenceInStock method
+Start processing order
+Test has finished
+Currently we're testing: testOrderProductQuantityMoreThanInStock method
+Start processing order
+Test has finished
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
