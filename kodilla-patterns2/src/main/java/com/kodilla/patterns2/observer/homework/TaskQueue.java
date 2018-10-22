@@ -4,13 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TaskQueue implements Observable{
-    private Observer observer;
+    private List<Observer> observers;
     private final List<String> taskName;
     private final String username;
 
     public TaskQueue(String username) {
         this.username = username;
         taskName = new ArrayList<>();
+        observers = new ArrayList<>();
     }
 
     public void addTask(String name) {
@@ -19,17 +20,20 @@ public class TaskQueue implements Observable{
     }
     @Override
     public void registerObserver(Observer observer) {
-        this.observer = observer;
+        observers.add(observer);
     }
 
     @Override
     public void notifyObservers() {
-        observer.update(this);
+        for(Observer observer : observers) {
+            observer.update(this);
+        }
+
     }
 
     @Override
     public void removeObserver(Observer observer) {
-        observer = null;
+        observers.remove(observer);
     }
 
     public List<String> getTaskName() {
@@ -38,5 +42,9 @@ public class TaskQueue implements Observable{
 
     public String getUsername() {
         return username;
+    }
+
+    public List<Observer> getObservers() {
+        return observers;
     }
 }
