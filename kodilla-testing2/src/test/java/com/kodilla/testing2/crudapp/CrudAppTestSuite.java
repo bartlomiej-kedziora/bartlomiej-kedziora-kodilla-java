@@ -51,6 +51,22 @@ public class CrudAppTestSuite {
         return taskName;
     }
 
+    private void deleteCrudAppTestTask(String taskName) throws InterruptedException {
+        driver.navigate().refresh();
+
+        while(!driver.findElement(By.xpath("//select[1]")).isDisplayed());
+
+        driver.findElements(By.xpath("//form[@class=\"datatable__row\"]")).stream()
+                .filter(anyForm ->
+                        anyForm.findElement(By.xpath(".//p[@class=\"datatable__field-value\"]"))
+                                .getText().equals(taskName))
+                .forEach(theForm -> {
+                    WebElement buttonDeleteCard = theForm.findElement(By.xpath(".//button[contains(text(), \"Delete\")][1]"));
+                    buttonDeleteCard.click();
+                });
+        Thread.sleep(5000);
+    }
+
     private void sendTestTaskToTrello(String taskName) throws InterruptedException {
         driver.navigate().refresh();
 
@@ -76,8 +92,8 @@ public class CrudAppTestSuite {
         boolean result = false;
         WebDriver driverTrello = WebDriverConfig.getDriver(WebDriverConfig.CHROME);
 
-        driverTrello.findElement(By.id("user")).sendKeys("xxx");
-        driverTrello.findElement(By.id("password")).sendKeys("yyy");
+        driverTrello.findElement(By.id("user")).sendKeys("xxx");        //set correct username
+        driverTrello.findElement(By.id("password")).sendKeys("yyy");    //set correct password
         driverTrello.findElement(By.id("login")).submit();
 
         Thread.sleep(2000);
@@ -102,6 +118,7 @@ public class CrudAppTestSuite {
     public void shouldCreateTrelloCard() throws InterruptedException {
         String taskName = createCrudAppTestTask();
         sendTestTaskToTrello(taskName);
+        deleteCrudAppTestTask(taskName);
         assertTrue(checkTaskExistsInTrello(taskName));
     }
 }
